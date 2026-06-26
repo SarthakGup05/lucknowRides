@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+}
+
+@utility bg-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(234, 88, 12, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(234, 88, 12, 0.05) 1px, transparent 1px);
+}
+
+@utility bg-dots {
+  background-size: 20px 20px;
+  background-image: radial-gradient(rgba(234, 88, 12, 0.08) 1.5px, transparent 1.5px);
+}
+
+@utility text-glow-orange {
+  text-shadow: 0 0 20px rgba(234, 88, 12, 0.2);
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #EAE3D9;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #EA580C;
+}
+
+@keyframes grid-drift {
+  from { transform: translate(0, 0); }
+  to   { transform: translate(50px, 50px); }
+}
+.animate-grid-drift {
+  animation: grid-drift 20s linear infinite;
+}
+
+/* ── Road: Car driving across ── */
+@keyframes car-drive {
+  0%   { transform: translateX(-220px) scaleX(1); }
+  100% { transform: translateX(110vw)  scaleX(1); }
+}
+.animate-car-drive {
+  animation: car-drive 9s linear infinite;
+}
+
+/* ── Road dashes scrolling left ── */
+@keyframes road-dash {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-120px); }
+}
+.animate-road-dash {
+  animation: road-dash 1.4s linear infinite;
+}
+
+/* ── Wheel spin ── */
+@keyframes wheel-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.animate-wheel-spin {
+  animation: wheel-spin 0.7s linear infinite;
+  transform-origin: center;
+}
+
+/* ── Headlight beam pulse ── */
+@keyframes beam-pulse {
+  0%, 100% { opacity: 0.35; }
+  50%       { opacity: 0.65; }
+}
+.animate-beam-pulse {
+  animation: beam-pulse 1.2s ease-in-out infinite;
+}
+
+/* ── Dust puff behind car ── */
+@keyframes dust-puff {
+  0%   { opacity: 0.6; transform: translateX(0) scale(1); }
+  100% { opacity: 0;   transform: translateX(-40px) scale(2.5); }
+}
+.animate-dust {
+  animation: dust-puff 0.8s ease-out infinite;
+}/* ── Hero entry animations ── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up       { animation: fade-up 0.7s cubic-bezier(.22,1,.36,1) both; }
+.animate-fade-up-d1    { animation: fade-up 0.7s 0.1s cubic-bezier(.22,1,.36,1) both; }
+.animate-fade-up-d2    { animation: fade-up 0.7s 0.22s cubic-bezier(.22,1,.36,1) both; }
+.animate-fade-up-d3    { animation: fade-up 0.7s 0.36s cubic-bezier(.22,1,.36,1) both; }
+.animate-fade-up-d4    { animation: fade-up 0.7s 0.5s cubic-bezier(.22,1,.36,1) both; }
+.animate-fade-up-d5    { animation: fade-up 0.7s 0.65s cubic-bezier(.22,1,.36,1) both; }
+
+@keyframes fade-in-right {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.animate-fade-in-right { animation: fade-in-right 0.9s 0.2s cubic-bezier(.22,1,.36,1) both; }
+
+/* ── Car glow float ── */
+@keyframes float-bob {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+.animate-float-bob { animation: float-bob 4s ease-in-out infinite; }
+
+/* ── Halo pulse around car ── */
+@keyframes halo-pulse {
+  0%, 100% { transform: scale(1);   opacity: 0.18; }
+  50%       { transform: scale(1.06); opacity: 0.32; }
+}
+.animate-halo-pulse { animation: halo-pulse 3s ease-in-out infinite; }
+
+/* ── Stat counter pop ── */
+@keyframes stat-pop {
+  0%   { opacity: 0; transform: scale(0.7); }
+  70%  { transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.animate-stat-pop-1 { animation: stat-pop 0.5s 0.7s cubic-bezier(.34,1.56,.64,1) both; }
+.animate-stat-pop-2 { animation: stat-pop 0.5s 0.85s cubic-bezier(.34,1.56,.64,1) both; }
+.animate-stat-pop-3 { animation: stat-pop 0.5s 1.0s cubic-bezier(.34,1.56,.64,1) both; }
