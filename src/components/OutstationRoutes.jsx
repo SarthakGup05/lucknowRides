@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { phoneNum, whatsappUrl } from '../utils/contact'
 import Underline from './Underline'
 import GridLines from './GridLines'
+import Reveal from './Reveal'
 
 function OutstationRoutes() {
   const [isCarouselPlaying, setIsCarouselPlaying] = useState(true)
@@ -172,73 +173,76 @@ function OutstationRoutes() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header with Slider Controls */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10 text-left">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-stone-900">
-            Trending <span className="relative inline-block text-orange-600 font-serif italic text-glow-orange">Outstation<Underline className="text-orange-600" /></span> Routes
-          </h2>
-          
-          <div className="flex items-center gap-2.5 self-start sm:self-auto">
-            {/* Play/Pause Autoplay Control */}
-            <button 
-              onClick={() => setIsCarouselPlaying(!isCarouselPlaying)}
-              className="h-10 w-10 rounded-full border border-stone-300 hover:border-orange-600 bg-white flex items-center justify-center text-stone-700 hover:text-orange-600 transition-all cursor-pointer"
-              title={isCarouselPlaying ? "Pause Autoplay" : "Play Autoplay"}
-            >
-              {isCarouselPlaying ? (
-                <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                  <path fillRule="evenodd" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" clipRule="evenodd" />
-                </svg>
-              ) : (
-                <svg className="w-3.5 h-3.5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              )}
-            </button>
+        <Reveal direction="up" duration={800}>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10 text-left">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-stone-900">
+              Trending <span className="relative inline-block text-orange-600 font-serif italic text-glow-orange">Outstation<Underline className="text-orange-600" /></span> Routes
+            </h2>
+            
+            <div className="flex items-center gap-2.5 self-start sm:self-auto">
+              {/* Play/Pause Autoplay Control */}
+              <button 
+                onClick={() => setIsCarouselPlaying(!isCarouselPlaying)}
+                className="h-10 w-10 rounded-full border border-stone-300 hover:border-orange-600 bg-white flex items-center justify-center text-stone-700 hover:text-orange-600 transition-all cursor-pointer"
+                title={isCarouselPlaying ? "Pause Autoplay" : "Play Autoplay"}
+              >
+                {isCarouselPlaying ? (
+                  <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path fillRule="evenodd" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" clipRule="evenodd" />
+                  </svg>
+                ) : (
+                  <svg className="w-3.5 h-3.5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                )}
+              </button>
 
-            {/* Scroll Left */}
-            <button 
-              onClick={() => {
-                setIsCarouselPlaying(false)
-                scroll('left')
-              }}
-              className="h-10 w-10 rounded-full border border-stone-300 hover:border-orange-600 bg-white flex items-center justify-center text-stone-700 hover:text-orange-600 transition-all cursor-pointer"
-              title="Scroll Left"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
+              {/* Scroll Left */}
+              <button 
+                onClick={() => {
+                  setIsCarouselPlaying(false)
+                  scroll('left')
+                }}
+                className="h-10 w-10 rounded-full border border-stone-300 hover:border-orange-600 bg-white flex items-center justify-center text-stone-700 hover:text-orange-600 transition-all cursor-pointer"
+                title="Scroll Left"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
 
-            {/* Scroll Right */}
-            <button 
-              onClick={() => {
-                setIsCarouselPlaying(false)
-                scroll('right')
-              }}
-              className="h-10 w-10 rounded-full border border-stone-300 hover:border-orange-600 bg-white flex items-center justify-center text-stone-700 hover:text-orange-600 transition-all cursor-pointer"
-              title="Scroll Right"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
+              {/* Scroll Right */}
+              <button 
+                onClick={() => {
+                  setIsCarouselPlaying(false)
+                  scroll('right')
+                }}
+                className="h-10 w-10 rounded-full border border-stone-300 hover:border-orange-600 bg-white flex items-center justify-center text-stone-700 hover:text-orange-600 transition-all cursor-pointer"
+                title="Scroll Right"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
           </div>
-        </div>
+        </Reveal>
 
         {/* Cards Carousel Container */}
-        <div 
-          ref={scrollRef}
-          className="flex gap-6 overflow-x-auto snap-x scrollbar-none pb-6 -mx-4 px-4 sm:mx-0 sm:px-0"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-        >
-          {trendingRoutes.map((route) => (
-            <a 
-              key={route.id}
-              href={whatsappUrl(`${route.title} Outstation`)}
-              target="_blank"
-              rel="noreferrer"
-              className="relative w-[290px] sm:w-[316px] h-[420px] rounded-3xl overflow-hidden shrink-0 snap-start shadow-lg hover:shadow-2xl border border-stone-200/50 transition-all duration-300 group block"
-            >
+        <Reveal direction="up" duration={800} delay={150}>
+          <div 
+            ref={scrollRef}
+            className="flex gap-6 overflow-x-auto snap-x scrollbar-none pb-6 -mx-4 px-4 sm:mx-0 sm:px-0"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {trendingRoutes.map((route) => (
+              <a 
+                key={route.id}
+                href={whatsappUrl(`${route.title} Outstation`)}
+                target="_blank"
+                rel="noreferrer"
+                className="relative w-[290px] sm:w-[316px] h-[420px] rounded-3xl overflow-hidden shrink-0 snap-start shadow-lg hover:shadow-2xl border border-stone-200/50 transition-all duration-300 group block"
+              >
               <img 
                 src={route.image} 
                 alt={route.title}
@@ -289,60 +293,62 @@ function OutstationRoutes() {
             </a>
           ))}
         </div>
+      </Reveal>
 
         {/* Divider line */}
         <div className="h-[1px] bg-stone-200/80 my-16"></div>
 
         {/* Section Header: Explore All Outstation Routes */}
-        <div id="all-routes" className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10 text-left">
-          <div className="space-y-3">
-            <span className="text-orange-600 text-sm font-bold uppercase tracking-wider">Outstation Coverage</span>
-            <h3 className="text-3xl font-extrabold text-stone-900">
-              Explore Fixed Fare Outstation Routes
-            </h3>
-            <p className="text-stone-600 max-w-2xl text-sm leading-relaxed">
-              Choose from our popular destinations. Flat pricing with neat air-conditioned cabs, professional drivers, and direct Call/WhatsApp booking hooks.
-            </p>
-          </div>
+        <Reveal direction="up" duration={800}>
+          <div id="all-routes" className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10 text-left">
+            <div className="space-y-3">
+              <span className="text-orange-600 text-sm font-bold uppercase tracking-wider">Outstation Coverage</span>
+              <h3 className="text-3xl font-extrabold text-stone-900">
+                Explore Fixed Fare Outstation Routes
+              </h3>
+              <p className="text-stone-600 max-w-2xl text-sm leading-relaxed">
+                Choose from our popular destinations. Flat pricing with neat air-conditioned cabs, professional drivers, and direct Call/WhatsApp booking hooks.
+              </p>
+            </div>
 
-          {/* Filter buttons */}
-          <div className="flex flex-wrap gap-2 bg-stone-100 p-1.5 rounded-2xl self-start lg:self-auto shrink-0">
-            <button 
-              onClick={() => setRouteFilter('all')}
-              className={`py-1.5 px-4 text-xs font-bold rounded-lg transition-all cursor-pointer ${routeFilter === 'all' ? 'bg-white text-orange-600 shadow-sm' : 'text-stone-500 hover:text-stone-800'}`}
-            >
-              All
-            </button>
-            <button 
-              onClick={() => setRouteFilter('spiritual')}
-              className={`py-1.5 px-4 text-xs font-bold rounded-lg transition-all cursor-pointer ${routeFilter === 'spiritual' ? 'bg-white text-orange-600 shadow-sm' : 'text-stone-500 hover:text-stone-850'}`}
-            >
-              Spiritual
-            </button>
-            <button 
-              onClick={() => setRouteFilter('hills')}
-              className={`py-1.5 px-4 text-xs font-bold rounded-lg transition-all cursor-pointer ${routeFilter === 'hills' ? 'bg-white text-orange-600 shadow-sm' : 'text-stone-500 hover:text-stone-850'}`}
-            >
-              Hill Stations
-            </button>
-            <button 
-              onClick={() => setRouteFilter('city')}
-              className={`py-1.5 px-4 text-xs font-bold rounded-lg transition-all cursor-pointer ${routeFilter === 'city' ? 'bg-white text-orange-600 shadow-sm' : 'text-stone-500 hover:text-stone-850'}`}
-            >
-              Major Cities
-            </button>
+            {/* Filter buttons */}
+            <div className="flex flex-wrap gap-2 bg-stone-100 p-1.5 rounded-2xl self-start lg:self-auto shrink-0">
+              <button 
+                onClick={() => setRouteFilter('all')}
+                className={`py-1.5 px-4 text-xs font-bold rounded-lg transition-all cursor-pointer ${routeFilter === 'all' ? 'bg-white text-orange-600 shadow-sm' : 'text-stone-500 hover:text-stone-800'}`}
+              >
+                All
+              </button>
+              <button 
+                onClick={() => setRouteFilter('spiritual')}
+                className={`py-1.5 px-4 text-xs font-bold rounded-lg transition-all cursor-pointer ${routeFilter === 'spiritual' ? 'bg-white text-orange-600 shadow-sm' : 'text-stone-500 hover:text-stone-850'}`}
+              >
+                Spiritual
+              </button>
+              <button 
+                onClick={() => setRouteFilter('hills')}
+                className={`py-1.5 px-4 text-xs font-bold rounded-lg transition-all cursor-pointer ${routeFilter === 'hills' ? 'bg-white text-orange-600 shadow-sm' : 'text-stone-500 hover:text-stone-850'}`}
+              >
+                Hill Stations
+              </button>
+              <button 
+                onClick={() => setRouteFilter('city')}
+                className={`py-1.5 px-4 text-xs font-bold rounded-lg transition-all cursor-pointer ${routeFilter === 'city' ? 'bg-white text-orange-600 shadow-sm' : 'text-stone-500 hover:text-stone-850'}`}
+              >
+                Major Cities
+              </button>
+            </div>
           </div>
-        </div>
+        </Reveal>
 
-        {/* Grid Layout (inspired by second screenshot) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredRoutes.map((route) => (
-            <div 
-              key={route.id}
-              className="bg-white border border-stone-200/80 p-4 rounded-2xl flex gap-4 items-center shadow-sm hover:shadow-lg hover:border-orange-500/20 transition-all duration-305 transition-all duration-300 group"
-            >
-              <img 
-                src={route.image} 
+          {filteredRoutes.map((route, idx) => (
+            <Reveal key={route.id} direction="up" delay={(idx % 3) * 100} className="h-full">
+              <div 
+                className="bg-white border border-stone-200/80 p-4 rounded-2xl flex gap-4 items-center shadow-sm hover:shadow-lg hover:border-orange-500/20 transition-all duration-300 group h-full"
+              >
+                <img 
+                  src={route.image} 
                 alt={route.title}
                 className="w-24 h-24 sm:w-28 sm:h-28 object-cover rounded-xl shrink-0"
               />
@@ -368,12 +374,12 @@ function OutstationRoutes() {
                     <span>{route.duration}</span>
                   </div>
                 </div>
-                <div className="flex items-center justify-between gap-2 pt-1 border-t border-stone-100">
-                  <span className="text-base font-black text-orange-600">{route.price}</span>
-                  <div className="flex gap-1.5">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-1 border-t border-stone-100">
+                  <span className="text-base font-black text-orange-600 leading-none">{route.price}</span>
+                  <div className="flex flex-wrap gap-1.5">
                     <a 
                       href={`tel:${phoneNum}`}
-                      className="bg-stone-100 hover:bg-stone-200 text-stone-850 font-bold py-1.5 px-3 rounded-lg text-[10px] transition-colors border border-stone-200 cursor-pointer"
+                      className="bg-stone-100 hover:bg-stone-200 text-stone-850 font-bold py-1.5 px-3 rounded-lg text-[10px] transition-colors border border-stone-200 cursor-pointer shrink-0"
                     >
                       Book Now
                     </a>
@@ -381,7 +387,7 @@ function OutstationRoutes() {
                       href={whatsappUrl(`${route.title} Outstation`)}
                       target="_blank"
                       rel="noreferrer"
-                      className="bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold py-1.5 px-3 rounded-lg text-[10px] transition-colors"
+                      className="bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold py-1.5 px-3 rounded-lg text-[10px] transition-colors shrink-0"
                     >
                       Whatsapp
                     </a>
@@ -389,6 +395,7 @@ function OutstationRoutes() {
                 </div>
               </div>
             </div>
+          </Reveal>
           ))}
         </div>
 
