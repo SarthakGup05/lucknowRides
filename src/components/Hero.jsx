@@ -147,7 +147,7 @@ function Hero() {
         {/* ════════════════════════════════════════
             STAT CARDS ROW — below the two columns
             ════════════════════════════════════════ */}
-        <div className="mt-14 sm:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-xl">
+        <div className="mt-14 sm:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl lg:max-w-none">
           <div className="animate-stat-pop-1 bg-white border border-stone-200/80 rounded-2xl p-4 text-left shadow-sm hover:shadow-md hover:border-orange-200 transition-all flex sm:flex-col items-center sm:items-start justify-between sm:justify-start gap-2">
             <div>
               <p className="text-2xl sm:text-3xl font-black text-orange-600">4.9<span className="text-sm font-semibold text-stone-400">/5</span></p>

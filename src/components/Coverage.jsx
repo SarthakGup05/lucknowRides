@@ -73,22 +73,22 @@ function Coverage() {
                 </div>
 
                 {/* Satellite nodes representing nearby cities */}
-                <div className="absolute top-8 left-12 flex flex-col items-center gap-1">
+                <div className="absolute top-[25%] left-[25%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1">
                   <div className="h-3 w-3 rounded-full bg-orange-500" />
                   <span className="text-[9px] font-bold text-stone-500">Kanpur</span>
                 </div>
 
-                <div className="absolute top-12 right-12 flex flex-col items-center gap-1">
+                <div className="absolute top-[25%] left-[75%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1">
                   <div className="h-3 w-3 rounded-full bg-orange-500" />
                   <span className="text-[9px] font-bold text-stone-500">Ayodhya</span>
                 </div>
 
-                <div className="absolute bottom-8 left-16 flex flex-col items-center gap-1">
+                <div className="absolute top-[75%] left-[30%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1">
                   <div className="h-3 w-3 rounded-full bg-orange-500" />
                   <span className="text-[9px] font-bold text-stone-500">Prayagraj</span>
                 </div>
 
-                <div className="absolute bottom-12 right-16 flex flex-col items-center gap-1">
+                <div className="absolute top-[75%] left-[70%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1">
                   <div className="h-3 w-3 rounded-full bg-orange-500" />
                   <span className="text-[9px] font-bold text-stone-500">Varanasi</span>
                 </div>

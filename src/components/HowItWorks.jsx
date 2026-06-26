@@ -107,7 +107,7 @@ function HowItWorks() {
         <div ref={containerRef} className="relative max-w-5xl mx-auto">
           
           {/* Central Vertical Line (Desktop: center, Mobile: left-aligned) */}
-          <div className="absolute left-6 lg:left-1/2 lg:-translate-x-1/2 top-4 bottom-4 w-[3px] bg-stone-100 rounded-full overflow-hidden">
+          <div className="absolute left-8 -translate-x-1/2 lg:left-1/2 top-4 bottom-4 w-[3px] bg-stone-100 rounded-full overflow-hidden">
             {/* Scroll-filled interactive path */}
             <div 
               className="absolute top-0 left-0 w-full bg-gradient-to-b from-orange-400 via-orange-600 to-amber-500 rounded-full transition-all duration-150 ease-out"
@@ -137,7 +137,7 @@ function HowItWorks() {
                   } relative`}
                 >
                   {/* Visual Node Dot on timeline line */}
-                  <div className="absolute left-6 lg:left-1/2 lg:-translate-x-1/2 top-5 z-10 flex items-center justify-center">
+                  <div className="absolute left-8 -translate-x-1/2 lg:left-1/2 top-5 z-10 flex items-center justify-center">
                     <div className={`w-3.5 h-3.5 rounded-full border-2 transition-all duration-500 ${
                       isActive 
                         ? 'bg-orange-600 border-orange-600 scale-125 shadow-lg shadow-orange-600/50' 
