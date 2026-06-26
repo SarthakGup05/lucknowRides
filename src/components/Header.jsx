@@ -1,8 +1,38 @@
+import { useState, useEffect, useRef } from 'react'
 import { phoneNum, formattedPhone } from '../utils/contact'
 
 function Header() {
+  const [isVisible, setIsVisible] = useState(true)
+  const lastScrollY = useRef(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      
+      // Always show at the top of the page
+      if (currentScrollY <= 10) {
+        setIsVisible(true)
+      } else {
+        // Hide when scrolling down, show when scrolling up
+        if (currentScrollY > lastScrollY.current) {
+          setIsVisible(false)
+        } else {
+          setIsVisible(true)
+        }
+      }
+      lastScrollY.current = currentScrollY
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <header className="sticky top-0 z-50 bg-[#FAF8F5]/80 backdrop-blur-md border-b border-stone-200/50">
+    <header 
+      className={`sticky top-0 z-50 w-full bg-[#FAF8F5]/80 backdrop-blur-md border-b border-stone-200/50 transition-transform duration-300 ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-3 group">
@@ -31,7 +61,7 @@ function Header() {
             className="hidden lg:flex items-center gap-2 text-stone-900 bg-stone-100 hover:bg-stone-200 border border-stone-200/80 px-4 py-2 rounded-xl text-sm font-bold transition-all"
           >
             <svg className="w-4 h-4 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M6.62 10.79a15.15 15.15 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27 11.72 11.72 0 003.7.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.7 1 1 0 01-.27 1.11z"/>
+              <path d="M6.62 10.79a15.15 15.15 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27 11.72 11.72 0 00.59 3.7 1 1 0 01-.27 1.11z"/>
             </svg>
             {formattedPhone}
           </a>
