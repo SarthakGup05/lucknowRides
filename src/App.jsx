@@ -28,7 +28,6 @@ function App() {
       <HowItWorks />
       <Safety />
       <Reviews />
-      <Pricing />
       <Coverage />
       <Footer />
     </div>
