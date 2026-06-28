@@ -36,7 +36,7 @@ function Fleet() {
     {
       name: "Suzuki Fronx",
       passengers: "5 Passengers",
-      rate: "₹7.00",
+      rate: "₹13.00",
       category: "Crossover",
       categoryColor: "bg-orange-600",
       image: "/fornox.webp",

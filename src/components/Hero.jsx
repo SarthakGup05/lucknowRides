@@ -116,7 +116,7 @@ function Hero() {
             {/* Car PNG — floating */}
             <div className="animate-float-bob relative z-10 w-full max-w-[580px] px-2 sm:px-0">
               <img
-                src="/purepng.webp"
+                src="https://p.kindpng.com/picc/s/217-2175123_swift-dzire-car-india-png-download-new-swift.png"
                 alt="Lucknow Rides premium orange taxi"
                 className="w-full h-auto object-contain drop-shadow-[0_20px_50px_rgba(234,88,12,0.3)]"
               />
