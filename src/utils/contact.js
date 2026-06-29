@@ -1,5 +1,5 @@
-export const phoneNum = "+918887917034"
-export const formattedPhone = "+91 88879 17034"
+export const phoneNum = "+919194117034"
+export const formattedPhone = "+91 91941 17034"
 export const whatsappUrl = (type) => {
   const message = `Hello Lucknow Rides,
 
@@ -16,5 +16,5 @@ Please share the fare estimate and driver availability.
 
 Thank you!`;
   
-  return `https://wa.me/918887917034?text=${encodeURIComponent(message)}`;
+  return `https://wa.me/919194117034?text=${encodeURIComponent(message)}`;
 }

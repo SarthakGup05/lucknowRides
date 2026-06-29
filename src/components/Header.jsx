@@ -1,38 +1,8 @@
-import { useState, useEffect, useRef } from 'react'
 import { phoneNum, formattedPhone } from '../utils/contact'
 
 function Header() {
-  const [isVisible, setIsVisible] = useState(true)
-  const lastScrollY = useRef(0)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY
-      
-      // Always show at the top of the page
-      if (currentScrollY <= 10) {
-        setIsVisible(true)
-      } else {
-        // Hide when scrolling down, show when scrolling up
-        if (currentScrollY > lastScrollY.current) {
-          setIsVisible(false)
-        } else {
-          setIsVisible(true)
-        }
-      }
-      lastScrollY.current = currentScrollY
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return (
-    <header 
-      className={`sticky top-0 z-50 w-full bg-[#FAF8F5]/80 backdrop-blur-md border-b border-stone-200/50 transition-transform duration-300 ${
-        isVisible ? 'translate-y-0' : '-translate-y-full'
-      }`}
-    >
+    <header className="sticky top-0 z-50 w-full bg-[#FAF8F5]/80 backdrop-blur-md border-b border-stone-200/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-3 group">

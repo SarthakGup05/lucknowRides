@@ -55,6 +55,9 @@ function Footer() {
                 <div>
                   Phone: <a href={`tel:${phoneNum}`} className="hover:text-orange-500">{formattedPhone}</a>
                 </div>
+                <div>
+                  Email: <a href="mailto:lucknowridesss@gmail.com" className="hover:text-orange-500 font-normal text-stone-500">lucknowridesss@gmail.com</a>
+                </div>
                 <div className="text-stone-500 leading-relaxed text-[11px] font-normal">
                   <span className="font-semibold text-stone-400">Address:</span><br />
                   House no 647A/01, Near MDM academy,<br />
